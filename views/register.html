@@ -1,0 +1,23 @@
+<section class="card register">
+    <form name="registrationForm" novalidate ng-submit="vm.register()">
+        <div class="textintro">
+            <h1>Register</h1>
+            <p>To access site features</p>
+            <p ng-class="errorMessage == true ? 'error-message' : ''">{{ message }}</p>
+        </div>
+
+        <fieldset>
+            <input type="text" name="firstName" placeholder="First Name" ng-model="vm.user.firstName" ng-required="true">
+            <p class="error validationerror" ng-show="registrationForm.firstName.$invalid && registrationForm.firstName.$touched">First name is required</p>
+            <input type="text" name="lastName" placeholder="Last Name" ng-model="vm.user.lastName" ng-required="true">
+            <p class="error validationerror" ng-show="registrationForm.lastName.$invalid && registrationForm.lastName.$touched">Last name is required</p>
+            <input type="email" name="email" placeholder="Email" ng-model="vm.user.email" ng-required="true">
+            <p class="error validationerror" ng-show="registrationForm.email.$invalid && registrationForm.email.$touched">Must be a valid email</p>
+            <input type="password" name="password" placeholder="Password" ng-model="vm.user.password" ng-required="true">
+            <p class="error validationerror" ng-show="registrationForm.password.$invalid && registrationForm.password.$touched">Password is required</p>
+        </fieldset>
+
+        <button type="submit" class="btn" ng-class="registrationForm.$invalid ? 'disabled' : ''" ng-disabled="registrationForm.$invalid">Register</button>
+        <p>or <a ng-href="#!/login">login</a></p>
+    </form>
+</section>

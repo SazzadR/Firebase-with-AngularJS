@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="angularApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AngularJS Registration</title>
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,100,700,900">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="dist/css/app.min.css">
+
+    <script src="bower_components/firebase/firebase.js"></script>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+
+    <script src="dist/scripts/app.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="cf" ng-include="'views/nav.html'"></nav>
+    </header>
+    <div class="page">
+        <div class="userinfo" ng-show="currentUser" ng-controller="AuthCtrl">
+            <span class="userinfo">Hi {{ currentUser.firstName }}</span>
+            <a ng-href="#!/login" ng-click="logout()">logout</a>
+        </div>
+
+        <main class="cf" ng-view></main>
+    </div>
+</body>
+</html>
